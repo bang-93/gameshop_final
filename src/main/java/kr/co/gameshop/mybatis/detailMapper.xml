@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Detail">
+
+<select id="read" parameterType="int" resultType="Detail">
+
+	select game_id
+			, game_title
+			, game_img
+			, game_price
+			, game_content
+			, game_genre
+			, game_date
+			, game_capacity
+	from game
+	where game_id = #{game_id}
+
+</select>
+
+
+
+</mapper>

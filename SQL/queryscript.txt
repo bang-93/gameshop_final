@@ -1,0 +1,17 @@
+-게임 장르에 속한 게임들의 수
+select g.game_genre , count(g.game_genre) as cnt
+from game g left outer join game g2 
+on g.game_genre =g2.game_id 
+group by game_genre
+order by g.game_genre asc;
+
+-선택한 게임 장르에 소속된 게임의 정보
+select * from game g where game_genre IN (
+	SELECT game_genre from game g where game_genre ='action'
+);
+
+//처음에 들어오면 전체보기
+select * from game
+
+//
+select * from game where game_genre = 선택한 장르 id

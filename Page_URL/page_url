@@ -1,0 +1,25 @@
+
+
+- 로그인 페이지 (client) // 회원가입 내용도 페이지에 포함
+http://localhost:~~~~/client/regist
+
+- 게임 리스트 (admin)
+http://localhost:~~~~/admin/game/list
+
+- 회원 리스트 (admin)
+http://localhost:~~~~/admin/member/list
+
+- 회원 삭제(admin) --> view X, 삭제 처리용
+http:localhost:~~~~/admin/member/delete
+
+- 게시판 리스트 (admin)
+http://localhost:~~~~/admin/board/list
+
+- 게시판 삭제(admin) --> view X, 삭제 처리용
+http:localhost:~~~~/admin/board/delete
+
+- 홈 페이지(client) //
+http://localhost:~~~~/client/main
+
+- 게임 목록 페이지(client) // 상품나열 
+http://localhost:~~~/client/shop/list

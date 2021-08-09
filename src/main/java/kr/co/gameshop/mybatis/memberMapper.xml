@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Member">
+
+	<!-- 아이디 중복조회 -->
+	<select id="useridCheck" resultType="int">
+		select
+			COUNT(*) 
+		from member
+		WHERE mem_userid = #{mem_userid}
+	</select>
+
+	<!-- 회원가입 -->
+ 	<insert id="memberRegist"> 
+       INSERT INTO member(
+			mem_userid,
+			mem_email,
+			mem_nickname,
+			mem_password
+       ) values (
+    		#{mem_userid},
+			#{mem_email},
+			#{mem_nickname},
+			#{mem_password}
+       )
+    </insert>
+    
+	<!-- 로그인 -->
+	<select id="login" resultType="Member">
+				select 
+					mem_id,
+					mem_userid,
+					mem_email,
+					mem_nickname,
+					mem_point
+				from member
+				where mem_userid = #{mem_userid}
+				and mem_password = #{mem_password}
+	</select>
+	
+	<!-- 관리자 로그인 -->
+	<select id="adminLogin" resultType="Member">
+		select * from member where mem_userid=master and mem_password=1234
+	</select> 
+	
+    <!-- 회원 전체 조회 -->
+	<select id="selectAll" resultType="Member">
+		select * from member order by mem_id asc
+	</select>
+	
+	<!-- 회원 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from member where mem_id=#{mem_id}
+	</delete>
+	
+	<!-- 포인트 지급 -->
+	<update id="updatePoint" parameterType="int">
+	  <![CDATA[
+		update member set mem_point = mem_point + 15
+		where mem_id = #{mem_userid}
+		]]>
+	</update>
+	
+	<!-- 포인트조회 -->
+	<select id="pointCheck" resultType="int" parameterType="int">
+		SELECT
+			 mem_point
+		 from member 
+		 WHERE mem_id = #{mid};
+	</select>
+	
+	
+</mapper>

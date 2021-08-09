@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Game">
+
+
+	<!-- 게임 전체 조회입니다-->
+	<select id="selectAll" resultType="Game">
+		select * from game order by game_id asc
+	</select>
+	
+	<!--장르에 소속된 상품 목록-->
+	<select id="selectByGenre" parameterType="String" resultType="Game">
+		select * from game where game_genre=#{game_genre}
+	</select>
+	
+	<!-- 게임 클릭 조회 -->
+<!-- 	
+	<select id="read" parameterType="int" resultType="Game">
+		select game_id
+			, game_title
+			, game_img
+			, game_price
+			, game_content
+			, game_genre
+			, game_date
+			, game_capacity
+		from game
+		where game_id=#{game_id}
+	</select>
+ -->
+ 
+ 	<!-- 게임 등록 -->
+ 	<insert id="insert">
+ 		insert into game(  game_title
+ 								, game_img
+ 								, game_price
+ 								, game_content
+ 								, game_genre
+ 								, game_date
+ 								, game_capacity)
+						values( #{game_title}
+								 , #{game_img}
+								 , #{game_price}
+								 , #{game_content}
+								 , #{game_genre}
+								 , #{game_date}
+								 , #{game_capacity})
+ 	</insert>
+ 
+ 
+	<!-- 게임 상품 수정 -->
+	<update id="update" parameterType="Game">
+		update game
+			set game_title=#{game_title},
+				game_img=#{game_img},
+				game_price=#{game_price},
+				game_content=#{game_content},
+				game_genre=#{game_genre},
+				game_date=#{game_date},
+				game_capacity=#{game_capacity}
+			where game_id=#{game_id}
+	</update>
+	
+	<!-- 게임 삭제 -->
+	<delete id="delete" parameterType="int">
+		delete from game where game_id=#{game_id}
+	</delete>
+	
+	<!-- 페이징 처리 -->
+<!-- 	<select id="listPage" resultType="Game" parameterType="kr.co.gameshop.vo.Criteria">
+		SELECT  game_id, 
+		        game_title , 
+		        game_img , 
+		        game_price , 
+		        game_content , 
+		        game_genre , 
+		        game_date , 
+		        game_capacity 
+		 FROM game
+		order by game_id desc
+		limit #{page},10
+	</select> -->
+	
+	<!-- 총 갯수 조회 -->
+	<select id="listPaging" resultType="Game">
+	<![CDATA[
+			select game_id, 
+			        game_title , 
+			        game_img , 
+			        game_price , 
+			        game_content , 
+			        game_genre , 
+			        game_date , 
+			        game_capacity 
+			from game
+			where game_id>0
+			order by game_id desc
+			limit #{page},10
+	]]>
+	</select>
+	
+	<!--게임 좋아요 누적-->
+	<update id="heartCount" parameterType="int">
+		update game
+		set game_heart = game_heart + 1
+		where game_id = #{game_id}
+	</update>
+	
+	<!--  -->
+	<select id="listCriteria" resultType="Game">
+	<![CDATA[
+			select game_id, 
+			        game_title , 
+			        game_img , 
+			        game_price , 
+			        game_content , 
+			        game_genre , 
+			        game_date , 
+			        game_capacity 
+			from game
+			where game_id>0
+			order by game_id desc
+			limit #{pageStart},#{perPageNum}
+	]]>
+	</select>
+	
+
+
+</mapper>
