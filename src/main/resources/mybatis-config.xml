@@ -8,6 +8,7 @@
 		<typeAlias type="kr.co.gameshop.vo.Game" alias="Game"/>
 		<typeAlias type="kr.co.gameshop.vo.Game" alias="Detail"/>
 		<typeAlias type="kr.co.gameshop.vo.Member" alias="Member"/>
+		<typeAlias type="kr.co.gameshop.vo.Cart" alias="Cart"/>
 	</typeAliases>
 	
  	<mappers>
@@ -15,5 +16,6 @@
 		<mapper resource="kr/co/gameshop/mybatis/gameMapper.xml"/>
 	    <mapper resource="kr/co/gameshop/mybatis/boardMapper.xml"/>
 	    <mapper resource="kr/co/gameshop/mybatis/detailMapper.xml"/>
+	    <mapper resource="kr/co/gameshop/mybatis/cartMapper.xml"/>
 	</mappers> 
 </configuration>
