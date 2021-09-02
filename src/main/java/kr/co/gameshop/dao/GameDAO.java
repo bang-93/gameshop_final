@@ -30,8 +30,8 @@ public class GameDAO {
 		return sqlSessionTemplate.selectOne("Detail.read", game_id);
 	}
 	
-	//하트 추가
-	public void heartCount(int game_id) throws Exception{
+	//하트 수 증가
+	public void heartCount(int game_id){
 		sqlSessionTemplate.update("Game.heartCount", game_id);
 	}
 	

@@ -26,17 +26,14 @@ public class GameService {
 	}
 	
 	// 게임 디테일 조회
-	public Game read(int game_id) throws Exception{
-		
+	public Game read(int game_id) throws Exception{	
 		return gameDAO.read(game_id);
 	}
 	
-	//하트 조회
-	public void heartCount(int game_id) throws Exception{
-		
-		gameDAO.heartCount(game_id);
+	//하트 수 증가
+	public void heartCount(int game_id){		
+		 gameDAO.heartCount(game_id);
 	}
-	
 	
 // 게임 클릭 조회
 //	public Game read(int game_id) {
