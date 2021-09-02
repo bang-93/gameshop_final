@@ -3,11 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+
   	<typeAliases>
 		<typeAlias type="kr.co.gameshop.vo.Board" alias="Board"/>
 		<typeAlias type="kr.co.gameshop.vo.Game" alias="Game"/>
 		<typeAlias type="kr.co.gameshop.vo.Game" alias="Detail"/>
 		<typeAlias type="kr.co.gameshop.vo.Member" alias="Member"/>
+		<typeAlias type="kr.co.gameshop.vo.ReBoard" alias="ReBoard"/>
 	</typeAliases>
 	
  	<mappers>
@@ -15,5 +17,7 @@
 		<mapper resource="kr/co/gameshop/mybatis/gameMapper.xml"/>
 	    <mapper resource="kr/co/gameshop/mybatis/boardMapper.xml"/>
 	    <mapper resource="kr/co/gameshop/mybatis/detailMapper.xml"/>
+	    <mapper resource="kr/co/gameshop/mybatis/reboardMapper.xml"/>
 	</mappers> 
+	
 </configuration>
