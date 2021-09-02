@@ -92,7 +92,7 @@
                     <div class="col-12 col-md-6">
                         <div class="single_product_desc">
 
-                            <input type="hidden" value=<%=gameInfo.getGame_id() %>>
+                            <input type="hidden" id="game_id" value=<%=gameInfo.getGame_id() %>>
 
 							<div id="game_title">
                             	<td class="title"><%=gameInfo.getGame_title() %></td>
@@ -128,8 +128,8 @@
                                 <!-- Wishlist -->
                                 
 	                              <div class="modal_pro_wishlist">
-	                              								<!-- 찜 숫자가 올라가는 자리 -->
-	                                  <a href="" target="_blank"><i class="ti-heart" >1<%-- <%=game.getGameheart()%> --%></i></a>
+	                              		<!-- 찜 숫자가 올라가는 자리 -->
+	                                  <a href=""><i class="ti-heart" onclick="addHeart()"><%=gameInfo.getGame_heart()%></i></a>
 	                              </div>
                             </form>
 <!-- 
@@ -181,8 +181,24 @@
     <script src="/resources/client/js/plugins.js"></script>
     <!-- Active js -->
     <script src="/resources/client/js/active.js"></script>
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </body>
+<script>
+function addHeart(){
+	var game_id=$("#game_id").val();
+	
+	$.ajax({
+		url:"/client/shop/heart",
+		type:"get",
+		data:{
+			"game_id":game_id
+		},
+		success:function(result){
+			console.log("좋아요 숫자 증가");
+		}
+	});
+}
+</script>
 
 </html>

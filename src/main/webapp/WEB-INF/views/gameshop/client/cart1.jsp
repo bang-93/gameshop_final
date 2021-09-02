@@ -1,11 +1,7 @@
-<%@page import="kr.co.gameshop.vo.Cart"%>
-<%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
-<%
-	List<Cart> cartList=(List)request.getAttribute("cartList"); //장바구니와 상품 정보가 조인되어 온 결과	
-%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -14,10 +10,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Karl - Fashion Ecommerce Template | Cart</title>
-
-    <!-- Favicon  -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+    <title>Game Shop | Cart</title>
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/resources/client/css/core-style.css">
@@ -29,16 +22,9 @@
 </head>
 
 <body>
-	<%@ include file="../inc/side_category.jsp" %>
+	<!-- ****** Header Area Start ****** -->
+        <%@ include file="./inc/header.jsp" %>      
     <div id="wrapper">
-
-        <!-- ****** Header Area Start ****** -->
-        <%@ include file="../inc/header.jsp" %>
-        <!-- ****** Header Area End ****** -->
-
-        <!-- ****** Top Discount Area Start ****** -->
-        <%@ include file="../inc/discount_banner.jsp" %>
-        <!-- ****** Top Discount Area End ****** -->
 
         <!-- ****** Cart Area Start ****** -->
         <div class="cart_area section_padding_100 clearfix">
@@ -56,25 +42,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	<%for(int i=0;i<cartList.size();i++){ %>
-                                	<%Cart cart = cartList.get(i); %>
                                     <tr>
                                         <td class="cart_product_img d-flex align-items-center">
-                                            <a href="#"><img src="/resources/data/<%=cart.getProduct().getProduct_img() %>" alt="Product"></a>
-                                            <h6><%=cart.getProduct().getProduct_name() %></h6>
+                                            <a href="#"><img src="img/product-img/product-9.jpg" alt="Product"></a>
+                                            <h6>Yellow Cocktail Dress</h6>
                                         </td>
-                                        <td class="price"><span><%=cart.getProduct().getPrice() %></span></td>
-                                        
+                                        <td class="price"><span>$49.88</span></td>
                                         <td class="qty">
                                             <div class="quantity">
                                                 <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
-                                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="<%=cart.getEa()%>">
+                                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="1">
                                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                             </div>
                                         </td>
-                                        <td class="total_price"><span><%=cart.getProduct().getPrice()*cart.getEa() %></span></td>
+                                        <td class="total_price"><span>$49.88</span></td>
                                     </tr>
-                                    <%} %>
                                 </tbody>
                             </table>
                         </div>
@@ -140,7 +122,7 @@
                                 <li><span>Shipping</span> <span>Free</span></li>
                                 <li><span><strong>Total</strong></span> <span><strong>$59.90</strong></span></li>
                             </ul>
-                            <a href="/client/checkout/form" class="btn karl-checkout-btn">Proceed to checkout</a>
+                            <a href="checkout.html" class="btn karl-checkout-btn">Proceed to checkout</a>
                         </div>
                     </div>
                 </div>
@@ -149,7 +131,77 @@
         <!-- ****** Cart Area End ****** -->
 
         <!-- ****** Footer Area Start ****** -->
-        <%@ include file="../inc/footer.jsp" %>	
+        <footer class="footer_area">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Footer Area Start -->
+                    <div class="col-12 col-md-6 col-lg-3">
+                        <div class="single_footer_area">
+                            <div class="footer-logo">
+                                <img src="img/core-img/logo.png" alt="">
+                            </div>
+                            <div class="copywrite_text d-flex align-items-center">
+                                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Area Start -->
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+                        <div class="single_footer_area">
+                            <ul class="footer_widget_menu">
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Faq</a></li>
+                                <li><a href="#">Returns</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single Footer Area Start -->
+                    <div class="col-12 col-sm-6 col-md-3 col-lg-2">
+                        <div class="single_footer_area">
+                            <ul class="footer_widget_menu">
+                                <li><a href="#">My Account</a></li>
+                                <li><a href="#">Shipping</a></li>
+                                <li><a href="#">Our Policies</a></li>
+                                <li><a href="#">Afiliates</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Single Footer Area Start -->
+                    <div class="col-12 col-lg-5">
+                        <div class="single_footer_area">
+                            <div class="footer_heading mb-30">
+                                <h6>Subscribe to our newsletter</h6>
+                            </div>
+                            <div class="subscribtion_form">
+                                <form action="#" method="post">
+                                    <input type="email" name="mail" class="mail" placeholder="Your email here">
+                                    <button type="submit" class="submit">Subscribe</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line"></div>
+
+                <!-- Footer Bottom Area Start -->
+                <div class="footer_bottom_area">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="footer_social_area text-center">
+                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <!-- ****** Footer Area End ****** -->
     </div>
     <!-- /.wrapper end -->
