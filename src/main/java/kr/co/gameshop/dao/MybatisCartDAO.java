@@ -14,7 +14,7 @@ public class MybatisCartDAO implements CartDAO{
 	SqlSessionTemplate sqlSessionTemplate;
 	
 	@Override
-	public List selectAll(int mem_id) {
+	public List selectAll(String mem_id) {
 		return sqlSessionTemplate.selectList("Cart.selectAll",mem_id);
 	}
 
@@ -29,7 +29,7 @@ public class MybatisCartDAO implements CartDAO{
 	}
 
 	@Override
-	public void deleteAll(int mem_id) {
+	public void deleteAll(String mem_id) {
 		sqlSessionTemplate.delete("Cart.deleteAll",mem_id);
 	}
 

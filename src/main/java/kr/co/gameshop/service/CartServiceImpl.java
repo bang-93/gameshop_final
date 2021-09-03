@@ -14,7 +14,7 @@ public class CartServiceImpl implements CartService{
 	CartDAO cartDAO;
 	
 	@Override
-	public List selectAll(int mem_id) {
+	public List selectAll(String mem_id) {
 		return cartDAO.selectAll(mem_id);
 	}
 
@@ -29,7 +29,7 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public void deleteAll(int mem_id) {
+	public void deleteAll(String mem_id) {
 		cartDAO.deleteAll(mem_id);
 	}
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.gameshop.service.CartService;
@@ -18,11 +19,11 @@ public class CartController {
 	CartService cartService;
 	
 	//장바구니 목록 가져오기
-	@GetMapping("/cart/list")
-	public String getList(Model model,HttpServletRequest request,@RequestParam int mem_id){
+	@PostMapping("/cart/list")
+	public String getList(Model model,HttpServletRequest request,@RequestParam String mem_id){
 		List cartList=cartService.selectAll(mem_id);
 		model.addAttribute("cartList",cartList);
-		return "gameshop/client/cart";
+		return "/gameshop/client/cart1";
 		
 	}
 	

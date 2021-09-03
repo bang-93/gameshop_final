@@ -3,8 +3,10 @@
 <mapper namespace="Cart">
 
 	<!-- 장바구니 조회 -->
-	<select id="selectAll" parameterType="int" resultType="Cart">
-		select * from cart where mem_id=#{mem_id}
+	<select id="selectAll" parameterType="String" resultType="Cart">
+		select game_title, game_img, game_price 
+		from game  
+		where game_id=(select game_id from cart where mem_id=#{mem_id});
 	</select>
 	
 	<!-- 장바구니 추가 -->

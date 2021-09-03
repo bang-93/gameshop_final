@@ -26,7 +26,7 @@
                             <!-- 장바구니 -->
                             <p>
 	                            <div class="cart">
-	                                <a href="#" id="header-cart-btn" target="_blank"><i class="ti-bag"></i>장바구니&nbsp;&nbsp;</a>
+	                                <a href="#" id="header-cart-btn"><i class="ti-bag" id="cart"></i>장바구니&nbsp;&nbsp;</a>
 	                            </div>
                             </p>
                             
@@ -101,5 +101,17 @@ $(document).ready(function() {
 	}
 	
 })
+
+$("#cart").click(function(){
+	var mem_id=$("#session_mem_id").val();
+	$.ajax({
+		url:"/client/cart/list",
+		type:"post",
+		data:{
+			"mem_id":mem_id
+		}
+	})	
+})
+
 
 </script>
