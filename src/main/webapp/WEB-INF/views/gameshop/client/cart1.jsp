@@ -1,4 +1,8 @@
+<%@page import="kr.co.gameshop.vo.Cart" %>
+<%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,12 +46,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <c:forEach var="cartList" items="${cartList}" varStatus="status">
                                     <tr>
                                         <td class="cart_product_img d-flex align-items-center">
-                                            <a href="#"><img src="img/product-img/product-9.jpg" alt="Product"></a>
-                                            <h6>Yellow Cocktail Dress</h6>
+                                            <a href="#"><img src="../${cartList.game_img}" alt="Product"></a>
+                                            <h6>${cartList.game_title}</h6>
                                         </td>
-                                        <td class="price"><span>$49.88</span></td>
+                                        <td class="price"><span>${cartList.game_price}</span></td>
                                         <td class="qty">
                                             <div class="quantity">
                                                 <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
@@ -57,6 +62,7 @@
                                         </td>
                                         <td class="total_price"><span>$49.88</span></td>
                                     </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>

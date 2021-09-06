@@ -1,6 +1,8 @@
 <%@page import="kr.co.gameshop.vo.Game" %>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%
    List<Game> gameList=(List)request.getAttribute("gameList");
 %>
@@ -15,7 +17,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title  -->
-    <title>Game Shop List</title>
+    <title>Game Shop List}</title>
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="/resources/client/css/core-style.css">

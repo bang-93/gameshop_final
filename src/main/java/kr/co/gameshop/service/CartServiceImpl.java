@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.gameshop.dao.CartDAO;
-import kr.co.gameshop.vo.Cart;
 
 @Service
 public class CartServiceImpl implements CartService{
@@ -14,23 +13,25 @@ public class CartServiceImpl implements CartService{
 	CartDAO cartDAO;
 	
 	@Override
-	public List selectAll(String mem_id) {
+	public List selectAll(int mem_id) {
+		System.out.println(mem_id+"=================");
 		return cartDAO.selectAll(mem_id);
+		
 	}
 
-	@Override
-	public void insert(Cart cart) {
-		cartDAO.insert(cart);
-	}
-
-	@Override
-	public void delete(Cart cart) {
-		cartDAO.delete(cart);
-	}
-
-	@Override
-	public void deleteAll(String mem_id) {
-		cartDAO.deleteAll(mem_id);
-	}
+//	@Override
+//	public void insert(Cart cart) {
+//		cartDAO.insert(cart);
+//	}
+//
+//	@Override
+//	public void delete(Cart cart) {
+//		cartDAO.delete(cart);
+//	}
+//
+//	@Override
+//	public void deleteAll(int mem_id) {
+//		cartDAO.deleteAll(mem_id);
+//	}
 
 }

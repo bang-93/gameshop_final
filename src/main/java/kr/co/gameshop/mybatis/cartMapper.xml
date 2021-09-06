@@ -3,10 +3,27 @@
 <mapper namespace="Cart">
 
 	<!-- 장바구니 조회 -->
-	<select id="selectAll" parameterType="String" resultType="Cart">
-		select game_title, game_img, game_price 
+	<select id="selectAll" parameterType="int" resultType="Cart">
+	<!-- 	select 
+			g.game_title,
+			g.game_img,
+			g.game_price 
+		from member m, game g, cart c 
+		where g.game_id=c.game_id and m.mem_id=#{mem_id};	 -->
+			select 
+				m.mem_id,
+				g.game_id ,
+				g.game_title,
+				g.game_img,
+				g.game_price
+			from member m
+			inner join cart c on c.mem_userid=m.mem_id
+			inner join game g on g.game_id =c.game_id 
+			where g.game_id=c.game_id and m.mem_id=#{mem_id};
+	
+<!-- 		select game_title, game_img, game_price 
 		from game  
-		where game_id=(select game_id from cart where mem_id=#{mem_id});
+		where game_id=(select game_id from cart where mem_id=#{mem_id}); -->
 	</select>
 	
 	<!-- 장바구니 추가 -->

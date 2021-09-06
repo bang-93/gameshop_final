@@ -22,7 +22,6 @@
                         </div>
                         <!-- Cart & Menu Area -->
                         <div class="header-cart-menu d-flex align-items-center ml-auto">
-                        
                             <!-- 장바구니 -->
                             <p>
 	                            <div class="cart">
