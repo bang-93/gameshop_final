@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -72,4 +73,27 @@ import kr.co.gameshop.service.GameService;
 			return "";
 			
 		}
+		
+		//마이 페이지 요청
+		@RequestMapping(value = "/getmypage")
+		public String getMypage(HttpServletRequest request, HttpServletResponse response) {
+			
+			return "/gameshop/client/mypage";
+		}
 }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
