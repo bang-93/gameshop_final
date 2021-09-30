@@ -27,7 +27,7 @@
 	</select>
 	
 	<!-- 장바구니 추가 -->
-	<insert id="insert" parameterType="Cart">
+	<insert id="insert" parameterType="hashmap">
 		insert cart(game_id, mem_id) values(#{game_id},#{mem_id})
 	</insert>
 	
