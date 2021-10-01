@@ -28,6 +28,27 @@
 
 </head>
 
+<script type="text/javascript">
+function addCart(game_id,mem_id){ // (game_id,mem_id) 받는값
+	
+	var game_id=game_id; //? 장바구니 추가 누른 게임의 아이디 보내기
+	var mem_id=mem_id;
+	
+	$.ajax({
+		url:"/client/cart/insert",
+		type:"post",
+		data:{
+			"game_id":game_id,
+			"mem_id":mem_id // "mem_id"(보내는 키값):mem_id(받은값)
+		},
+		success:function(result){
+			alert("장바구니에 추가하였습니다.");
+			console.log("게임아이디=="+game_id+"  멤버아이디=="+mem_id);
+		}		
+	})
+}
+</script>
+
 <body>
 
     <div id="wrapper">
@@ -149,8 +170,11 @@
                                         <h4 class="product-price"><%=game.getGame_price() %></h4>
                                         <p><%=game.getGame_title() %></p>
                                         <!-- Add to Cart -->
-                                        <a href="#" class="add-to-cart-btn" onclick="addCart()">장바구니에 추가</a>
-                                    </div>
+                                        <p>
+                                        <a href="#" class="add-to-cart-btn" onclick="addCart(<%=game.getGame_id() %>,<%=game.getGame_id() %>)">
+                                       	장바구니 추가
+                                        </p>
+                                    </div>  
                                 </div>
                                 <%} %>
                     </div>
@@ -176,24 +200,6 @@
 	
 </body>
 
-<script type="text/javascript">
-function addCart(){
-	var game_id=${game.game_id}; //? 장바구니 추가 누른 게임의 아이디 보내기
-	var mem_id=${session.member.mem_id};
-	
-	$.ajax({
-		url:"/client/cart/insert",
-		type:"post",
-		data:{
-			"game_id":game_id,
-			"mem_id":mem_id
-		},
-		success:function(result){
-			alert("장바구니에 추가하였습니다.");
-			console.log("게임아이디=="+game_id+"  멤버아이디=="+mem_id);
-		}		
-	})
-}
-</script>
+
 
 </html>

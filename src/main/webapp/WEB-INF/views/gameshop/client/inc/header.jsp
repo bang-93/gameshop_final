@@ -82,7 +82,7 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-	if($("#session_mem_id").val()!=null){
+	if($("#session_mem_id").val()!=null){ // ("#session_mem_id") #은 id를 의미 .은 class
 		
 		$.ajax({
 			url:"/client/checkPoint",

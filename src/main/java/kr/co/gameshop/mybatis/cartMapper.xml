@@ -28,7 +28,7 @@
 	
 	<!-- 장바구니 추가 -->
 	<insert id="insert" parameterType="hashmap">
-		insert cart(game_id, mem_id) values(#{game_id},#{mem_id})
+		insert cart(game_id, mem_userid) values(#{game_id},#{mem_id})
 	</insert>
 	
 	<!-- 장바구니 상품 1개 삭제 -->

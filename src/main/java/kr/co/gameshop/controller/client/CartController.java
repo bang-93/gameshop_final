@@ -64,7 +64,10 @@ public class CartController {
 	@PostMapping(value="/cart/insert")
 	@ResponseBody
 	public String addCart(HttpSession session, Model model, @RequestParam int game_id, int mem_id) {
-		HashMap map=new HashMap();
+		
+		
+		
+		HashMap<String , Integer>map=new HashMap<String, Integer>();
 		map.put("game_id", game_id);
 		map.put("mem_id", mem_id);
 		
