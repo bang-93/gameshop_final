@@ -12,9 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import ko.co.gameshop.dto.CommunityDto;
-import ko.co.gameshop.form.CommunityForm;
 import kr.co.gameshop.dao.MemberDAO;
 import kr.co.gameshop.service.BoardService;
 import kr.co.gameshop.vo.Board;
