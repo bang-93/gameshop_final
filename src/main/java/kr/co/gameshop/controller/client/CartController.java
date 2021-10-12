@@ -37,7 +37,7 @@ public class CartController {
 		//Map<String, Object> map = new HashMap<String, Object>();		
 		
 		Member member = (Member) session.getAttribute("member");
-		logger.warn("mem_id====="+member);
+		logger.warn("mem_id====="+member.getMem_id());
 		List<Cart> cartList = cartService.selectAll(member.getMem_id()); 
 		
 		//map.put("cartList", cartList); // 장바구니 정보를 map에 저장
@@ -64,9 +64,6 @@ public class CartController {
 	@PostMapping(value="/cart/insert")
 	@ResponseBody
 	public String addCart(HttpSession session, Model model, @RequestParam int game_id, int mem_id) {
-		
-		
-		
 		HashMap<String , Integer>map=new HashMap<String, Integer>();
 		map.put("game_id", game_id);
 		map.put("mem_id", mem_id);
@@ -76,5 +73,10 @@ public class CartController {
 	}	
 	//장바구니 1건 삭제	
 	//장바구니 전체 삭제
+	@PostMapping(value = "/cart/deleteAll")
+	public String deleteAll(int mem_id) {
+		cartService.deleteAll(mem_id);
+		return "/client/cart/list";
+	}
 }
    

@@ -170,7 +170,7 @@ function addCart(game_id,mem_id){ // (game_id,mem_id) 받는값
                                         <h4 class="product-price"><%=game.getGame_price() %></h4>
                                         <p><%=game.getGame_title() %></p>
                                         <!-- Add to Cart -->
-                                        <p><a href="#" class="add-to-cart-btn" onclick="addCart(<%=game.getGame_id() %>,<%=game.getGame_id() %>)">장바구니 추가</p>
+                                        <p><a href="#" class="add-to-cart-btn" onclick="addCart(<%=game.getGame_id() %>,${member.mem_id})">장바구니 추가</p>
                                     </div>  
                                 </div>
                                 <%} %>
