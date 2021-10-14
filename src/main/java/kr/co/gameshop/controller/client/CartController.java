@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -73,9 +74,11 @@ public class CartController {
 	}	
 	//장바구니 전체 삭제
 	@PostMapping(value = "/cart/deleteAll")
-	public String deleteAll(int mem_id) {
-		cartService.deleteAll(mem_id);
-		return "/client/cart/list";
+	@ResponseBody
+	public String deleteAll(@RequestParam String mem_userid) {
+		logger.warn("장바구니 삭제시 넘어온 멤버 아이디===="+mem_userid);
+		cartService.deleteAll(mem_userid);
+		return "";
 	}
 }
    

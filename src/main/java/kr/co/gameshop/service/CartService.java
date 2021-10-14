@@ -10,5 +10,5 @@ public interface CartService{
 	public List selectAll(int mem_id);
 	public void insert(HashMap map);
 	public void delete(Cart cart);
-	public void deleteAll(int mem_id);
+	public void deleteAll(String mem_userid);
 }

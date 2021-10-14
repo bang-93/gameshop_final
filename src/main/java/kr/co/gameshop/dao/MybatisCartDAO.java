@@ -33,8 +33,8 @@ public class MybatisCartDAO implements CartDAO{
 	}
 
 	@Override
-	public void deleteAll(int mem_id) {
-		sqlSessionTemplate.delete("Cart.deleteAll",mem_id);
+	public void deleteAll(String mem_userid) {
+		sqlSessionTemplate.delete("Cart.deleteAll",mem_userid);
 	}
 
 }

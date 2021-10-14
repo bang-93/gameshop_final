@@ -61,7 +61,7 @@
                                 <a href="/client/shop/list" >계속해서 쇼핑하기</a>
                             </div>
                             <div class="update-checkout w-50 text-right">
-                                <a href="#" onclick="clearCart(${member.mem_id})">clear cart</a>
+                                <a href="#" onclick="clearCart(${member.mem_userid})">clear cart</a>
 <!--                                 <a href="#">Update cart</a>
  -->                            </div>
                         </div>
@@ -163,14 +163,14 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </body>
 <script type="text/javascript">
 
-function clearCart(mem_id){
-	var mem_id=mem_id;
+function clearCart(mem_userid){
+	var mem_userid=mem_userid;
 	
 	$.ajax({
 		url:"/client/cart/deleteAll",
 		type:"post",
 		data:{
-			mem_id:mem_id
+			mem_userid:mem_userid
 		},
 		success:function(result){
 			if(confirm("장바구니를 비우시겠습니까?")){

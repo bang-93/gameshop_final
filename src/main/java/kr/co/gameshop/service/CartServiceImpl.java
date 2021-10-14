@@ -32,8 +32,8 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public void deleteAll(int mem_id) {
-		cartDAO.deleteAll(mem_id);
+	public void deleteAll(String mem_userid) {
+		cartDAO.deleteAll(mem_userid);
 	}
 
 }

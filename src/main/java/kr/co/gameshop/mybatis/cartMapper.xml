@@ -37,7 +37,7 @@
 	</delete> -->
 	
 	<!-- 장바구니 비우기 -->
-	<delete id="deleteAll" parameterType="int">
-		delete from cart where mem_id=#{mem_id}
+	<delete id="deleteAll" parameterType="String">
+		delete from cart where mem_userid=#{mem_userid}
 	</delete>
 </mapper>
