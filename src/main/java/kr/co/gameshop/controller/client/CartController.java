@@ -71,7 +71,6 @@ public class CartController {
 		cartService.insert(map);
 		return "";
 	}	
-	//장바구니 1건 삭제	
 	//장바구니 전체 삭제
 	@PostMapping(value = "/cart/deleteAll")
 	public String deleteAll(int mem_id) {

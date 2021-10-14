@@ -24,26 +24,7 @@
     <link href="/resources/client/css/responsive.css" rel="stylesheet">
 
 </head>
-<script type="text/javascript">
-function clearCart(mem_id){
-	var mem_id=mem_id;
-	
-	$.ajax({
-		url:"/client/cart/deleteAll",
-		type:"post",
-		data:{
-			mem_id:mem_id
-		},
-		success:function(result){
-			if(confirm("장바구니를 비우시겠습니까?")){
-				alert("장바구니 비우기가 완료 되었습니다.");//장바구니 비우기 성공
-			}else{
-				alert("장바구니 비우기를 다시 시도 해주세요.");//장바구니 비우기 실패
-			}
-		}
-	})	
-}
-</script>
+
 <body>
 	<!-- ****** Header Area Start ****** -->
         <%@ include file="./inc/header.jsp" %>      
@@ -63,7 +44,6 @@ function clearCart(mem_id){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <%for(Cart cartList:cartList){ %>
                                 <c:forEach var="cartList" items="${cartList}" varStatus="status">
                                     <tr>
                                         <td class="cart_product_img d-flex align-items-center">
@@ -73,7 +53,6 @@ function clearCart(mem_id){
                                         <td class="price"><span>${cartList.game_price}</span></td>
                                     </tr>
                                     </c:forEach>
-                                    <%} %>
                                 </tbody>
                             </table>
                         </div>
@@ -82,7 +61,7 @@ function clearCart(mem_id){
                                 <a href="/client/shop/list" >계속해서 쇼핑하기</a>
                             </div>
                             <div class="update-checkout w-50 text-right">
-                                <a onclick="clearCart(${member.mem_id})">clear cart</a>
+                                <a href="#" onclick="clearCart(${member.mem_id})">clear cart</a>
 <!--                                 <a href="#">Update cart</a>
  -->                            </div>
                         </div>
@@ -182,5 +161,25 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 </body>
+<script type="text/javascript">
 
+function clearCart(mem_id){
+	var mem_id=mem_id;
+	
+	$.ajax({
+		url:"/client/cart/deleteAll",
+		type:"post",
+		data:{
+			mem_id:mem_id
+		},
+		success:function(result){
+			if(confirm("장바구니를 비우시겠습니까?")){
+				alert("장바구니 비우기가 완료 되었습니다.");//장바구니 비우기 성공
+			}else{
+				alert("장바구니 비우기를 다시 시도 해주세요.");//장바구니 비우기 실패
+			}
+		}
+	})	
+}
+</script>
 </html>
